@@ -14,7 +14,7 @@ services:
         image: 'mariadb'
         restart: always
         environment:
-            MYSQL_DATABASE: blov_mvc
+            MYSQL_DATABASE: blog_mvc
             MYSQL_ROOT_PASSWORD: root
         volumes:
            - ./database/dump.sql:/docker-entrypoint-initdb.d/dump.sql
