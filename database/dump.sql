@@ -8,7 +8,7 @@ CREATE TABLE `user`
 
 CREATE TABLE `post` 
 (
-    post_id INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     post text NOT NULL,
     `date` DATE,
     userId INT,
@@ -17,10 +17,10 @@ CREATE TABLE `post`
 
 CREATE TABLE `comment` 
 (
-    comment_id INT PRIMARY KEY AUTO_INCREMENT,
-    post text NOT NULL,
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    content text NOT NULL,
     userId INT,
  	postId INT,
     FOREIGN KEY (userId) REFERENCES `user`(id),
-  	FOREIGN KEY (postId) REFERENCES `post`(post_id)
+  	FOREIGN KEY (postId) REFERENCES `post`(id)
 );
