@@ -4,7 +4,7 @@
 <?php
 /** @var App\Entity\Post[] $posts */
 foreach ($posts as $post) {
-    echo $post->getContent();
+    echo $post->getPost();
 }
 
 

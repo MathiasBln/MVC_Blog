@@ -2,7 +2,7 @@
 
 namespace Root\Html\Factory;
 
-use App\Interfaces\Database;
+use Root\Html\Interfaces\Database;
 
 class PDOFactory implements Database
 {

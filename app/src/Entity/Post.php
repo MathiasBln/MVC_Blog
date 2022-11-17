@@ -2,7 +2,7 @@
 
 namespace Root\Html\Entity;
 
-class Post
+class Post extends BaseEntity
 {
     private int $id;
     private string $post;
@@ -29,18 +29,18 @@ class Post
 
 
     /**
-     * @return int
+     * @return string
      */
-    public function getPost(): int
+    public function getPost(): string
     {
         return $this->post;
     }
 
     /**
-     * @param int $post
+     * @param string $post
      * @return Post
      */
-    public function setPost(int $post): Post
+    public function setPost(string $post): Post
     {
         $this->post = $post;
         return $this;
