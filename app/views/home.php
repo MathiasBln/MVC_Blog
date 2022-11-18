@@ -5,5 +5,4 @@
 foreach ($posts as $post) {
     echo $post->getPost();
 }
-
-
+?>
