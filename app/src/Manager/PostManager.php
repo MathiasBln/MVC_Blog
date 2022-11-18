@@ -56,5 +56,13 @@ class PostManager extends BaseManager
         header('Location:../');
     }
 
+    //on affiche les author des posts
+    public function author(int $id) {
+        $show = $this->pdo->prepare('SELECT * FROM post INNER JOIN user WHERE post.userId = user.id');
+        $delete->execute(array(
+            'id' => $id,
+        ));
+    }
+
 
 }

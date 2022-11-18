@@ -49,4 +49,10 @@ class PostController extends AbstractController
         $deletePost = $getPost->delete($id);
         $this->render();
     }
+    #[Route('/author/{id}', name: "author", methods: ["GET", "POST"])]
+    public function showAuthor($id) {
+        $getPost = new PostManager(new PDOFactory());
+        $showAuthor = $getPost->author($id);
+        $this->render();
+    }
 }
