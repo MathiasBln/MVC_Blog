@@ -1,13 +1,20 @@
 <?php
 
-namespace Root\Html\Entity;
+namespace App\Entity;
 
-class User
+use App\Interfaces\PasswordProtectedInterface;
+use App\Interfaces\UserInterface;
+
+class User extends BaseEntity implements UserInterface, PasswordProtectedInterface
 {
-    private int $id;
+    private ?int $id;
     private string $username;
     private string $password;
-    private int $token;
+    private string $email;
+    private string $firstName;
+    private string $lastName;
+    private ?string $gender;
+    private array $roles = [];
 
     /**
      * @return int
@@ -27,59 +34,123 @@ class User
         return $this;
     }
 
-
-        /**
-     * @return int
+    /**
+     * @return string
      */
-    public function getUsername(): int
+    public function getUsername(): string
     {
-        return $this->id;
+        return $this->username;
     }
 
     /**
-     * @param int $username
+     * @param string $username
      * @return User
      */
-    public function setUsername(int $username): User
+    public function setUsername(string $username): User
     {
         $this->username = $username;
         return $this;
     }
 
-        /**
+    /**
      * @return string
      */
-    public function getPassword(): int
+    public function getEmail(): string
     {
-        return $this->password;
+        return $this->email;
     }
 
     /**
-     * @param string $password
+     * @param string $email
      * @return User
      */
-    public function setPassword(int $password): User
+    public function setEmail(string $email): User
     {
-        $this->password = $password;
+        $this->email = $email;
         return $this;
     }
 
-
     /**
-     * @return int
+     * @return string
      */
-    public function getToken(): int
+    public function getFirstName(): string
     {
-        return $this->token;
+        return $this->firstName;
     }
 
     /**
-     * @param int $token
+     * @param string $firstName
      * @return User
      */
-    public function setToken(int $token): User
+    public function setFirstName(string $firstName): User
     {
-        $this->token = $token;
+        $this->firstName = $firstName;
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName(): string
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @param string $lastName
+     * @return User
+     */
+    public function setLastName(string $lastName): User
+    {
+        $this->lastName = $lastName;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGender(): string
+    {
+        return $this->gender;
+    }
+
+    /**
+     * @param string $gender
+     * @return User
+     */
+    public function setGender(string $gender): User
+    {
+        $this->gender = $gender;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        $roles[] = "ROLE_USER";
+        return $roles;
+    }
+
+    /**
+     * @param array $roles
+     * @return User
+     */
+    public function setRoles(array $roles): User
+    {
+        $this->roles = $roles;
+        return $this;
+    }
+
+    public function getHashedPassword(): string
+    {
+        return 'coucou';
+    }
+
+    public function passwordMatch(string $plainPwd): bool
+    {
+        return true;
     }
 }

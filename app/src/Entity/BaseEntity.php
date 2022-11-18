@@ -1,8 +1,8 @@
 <?php
 
-namespace Root\Html\Entity;
+namespace App\Entity;
 
-use Root\Html\Traits\Hydrator;
+use App\Traits\Hydrator;
 
 abstract class BaseEntity
 {

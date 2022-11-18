@@ -1,8 +1,8 @@
 <?php
 
-namespace Root\Html\Manager;
+namespace App\Manager;
 
-use Root\Html\Entity\Post;
+use App\Entity\Post;
 
 class PostManager extends BaseManager
 {
@@ -11,14 +11,14 @@ class PostManager extends BaseManager
      */
     public function getAllPosts(): array
     {
-        $query = $this->pdo->query("select * from post inner join user ON post.userId = user.id");
+        $query = $this->pdo->query("select * from post");
 
-        $posts = [];
+        $users = [];
 
         while ($data = $query->fetch(\PDO::FETCH_ASSOC)) {
-            $posts[] = new Post($data);
+            $users[] = new Post($data);
         }
 
-        return $posts;
+        return $users;
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Root\Html\Factory;
+namespace App\Factory;
 
-use Root\Html\Interfaces\Database;
+use App\Interfaces\Database;
 
 class PDOFactory implements Database
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Root\Html\Manager;
+namespace App\Manager;
 
-use  Root\Html\Interfaces\Database;
+use App\Interfaces\Database;
 
 abstract class BaseManager
 {

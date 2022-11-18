@@ -1,6 +1,6 @@
 <?php
 
-namespace Root\Html\Entity;
+namespace App\Entity;
 
 class Post extends BaseEntity
 {

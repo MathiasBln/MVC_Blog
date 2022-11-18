@@ -1,6 +1,6 @@
 <?php
 
-namespace Root\Html\Traits;
+namespace App\Traits;
 
 trait Hydrator
 {

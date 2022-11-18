@@ -1,6 +1,6 @@
 <?php
 
-namespace Root\Html\Route;
+namespace App\Route;
 
 use Attribute;
 

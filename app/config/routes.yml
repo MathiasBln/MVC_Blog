@@ -1,11 +1,11 @@
 index:
     path: /
-    controller: Root\Html\Controller\PostController
+    controller: App\Controller\PostController
     action: home
 
 showOne:
     path: /post/{id}
-    controller:  Root\Html\Controller\PostController
+    controller: App\Controller\PostController
     action: showOne
     methods:
         - GET
@@ -13,5 +13,5 @@ showOne:
 
 login:
     path: /login
-    controller:  Root\Html\Controller\SecurityController
+    controller: App\Controller\SecurityController
     action: login

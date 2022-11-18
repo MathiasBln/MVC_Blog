@@ -1,6 +1,6 @@
 <?php
 
-use Root\Html\Route\Route;
+use App\Route\Route;
 
 require_once 'vendor/autoload.php';
 
@@ -12,7 +12,8 @@ foreach ($dirs as $dir) {
     if ($dir === "." || $dir === "..") {
         continue;
     }
-    $controllers[] = "Root\\Html\\Controller\\" . pathinfo($controllerDir . DIRECTORY_SEPARATOR . $dir)['filename'];
+
+    $controllers[] = "App\\Controller\\" . pathinfo($controllerDir . DIRECTORY_SEPARATOR . $dir)['filename'];
 }
 
 $routesObj = [];

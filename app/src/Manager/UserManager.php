@@ -1,17 +1,18 @@
 <?php
 
-namespace Root\Html\Manager;
+namespace App\Manager;
 
-use Root\Html\Entity\User;
+use App\Entity\User;
 
 class UserManager extends BaseManager
 {
+
     /**
      * @return User[]
      */
     public function getAllUsers(): array
     {
-        $query = $this->pdo->query("select * from user");
+        $query = $this->pdo->query("select * from User");
 
         $users = [];
 
@@ -22,16 +23,25 @@ class UserManager extends BaseManager
         return $users;
     }
 
-    public function getUser($userId): array
+    public function getByUsername(string $username): ?User
     {
-        $query = $this->pdo->query("select * from user where user.id = $userId");
+        $query = $this->pdo->prepare("SELECT * FROM User WHERE username = :username");
+        $query->bindValue("username", $username, \PDO::PARAM_STR);
+        $query->execute();
+        $data = $query->fetch(\PDO::FETCH_ASSOC);
 
-        $user = [];
-
-        while ($data = $query->fetch(\PDO::FETCH_ASSOC)) {
-            $user[] = new User($data);
+        if ($data) {
+            return new User($data);
         }
 
-        return $user;
+        return null;
+    }
+
+    public function insertUser(User $user)
+    {
+        $query = $this->pdo->prepare("INSERT INTO User (password, username), VALUES (:password, :username)");
+        $query->bindValue("password", $user->getHashedPassword(), \PDO::PARAM_STR);
+        $query->bindValue("username", $user->getUsername(), \PDO::PARAM_STR);
+        $query->execute();
     }
 }
