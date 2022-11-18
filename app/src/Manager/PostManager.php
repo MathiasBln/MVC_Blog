@@ -13,12 +13,23 @@ class PostManager extends BaseManager
     {
         $query = $this->pdo->query("select * from post");
 
-        $users = [];
+        $posts = [];
 
         while ($data = $query->fetch(\PDO::FETCH_ASSOC)) {
-            $users[] = new Post($data);
+            $posts[] = new Post($data);
         }
 
-        return $users;
+        return $posts;
     }
+
+
+    //on insère un post dans la base de données
+	public function add() {
+        $insert =  $this->pdo->prepare('INSERT INTO post(post, userId) VALUES(:post, :userId)');
+        $insert->execute(array(
+            'post' => $_POST["post"],
+            'userId' => 1,
+        ));
+        header('Location:../');
+	}
 }

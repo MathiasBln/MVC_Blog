@@ -1,9 +1,14 @@
-<?php /** @var App\Entity\User $user */ ?>
+<form action="/add" method="post">
+    <div>
+        <textarea type="text" name="post" placeholder="Texte ...." required="required" autocomplete="off"></textarea>
+    </div>
+    <div>
+        <button type="submit">Create</button>
+    </div>   
+</form>
 
-<?php
-/** @var App\Entity\Post[] $posts */
-foreach ($posts as $post) {
-    echo $post->getPost();
-}
+<?php foreach ($posts as $post): ?>
+    <p><?=  $post->getPost(); ?></p>
+<?php endforeach; ?>
 
 

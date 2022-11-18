@@ -12,23 +12,18 @@ class PostController extends AbstractController
     #[Route('/', name: "homepage", methods: ["GET"])]
     public function home()
     {
-        $manger = new PostManager(new PDOFactory());
-        $posts = $manger->getAllPosts();
+        $getPost = new PostManager(new PDOFactory());
+        $posts = $getPost->getAllPosts();
 
         $this->render("home.php", [
             "posts" => $posts,
         ], "Tous les posts");
     }
 
-    /**
-     * @param $id
-     * @param $truc
-     * @param $machin
-     * @return void
-     */
-    #[Route('/post/{id}', name: "francis", methods: ["GET"])]
-    public function showOne($id)
-    {
-        var_dump($id, $truc);
-    }
+    #[Route('/add', name: "new", methods: ["GET", "POST"])]
+	public function insert() {
+        $getPost = new PostManager(new PDOFactory());
+		$test = $getPost->add();
+		$this->render();
+	}
 }
