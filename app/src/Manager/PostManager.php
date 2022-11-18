@@ -11,14 +11,14 @@ class PostManager extends BaseManager
      */
     public function getAllPosts(): array
     {
-        $query = $this->pdo->query("select * from post");
+        $query = $this->pdo->query("select * from post inner join user ON post.userId = user.id");
 
-        $users = [];
+        $posts = [];
 
         while ($data = $query->fetch(\PDO::FETCH_ASSOC)) {
-            $users[] = new Post($data);
+            $posts[] = new Post($data);
         }
 
-        return $users;
+        return $posts;
     }
 }

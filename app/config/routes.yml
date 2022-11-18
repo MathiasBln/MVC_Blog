@@ -1,0 +1,17 @@
+index:
+    path: /
+    controller: Root\Html\Controller\PostController
+    action: home
+
+showOne:
+    path: /post/{id}
+    controller:  Root\Html\Controller\PostController
+    action: showOne
+    methods:
+        - GET
+        - POST
+
+login:
+    path: /login
+    controller:  Root\Html\Controller\SecurityController
+    action: login
