@@ -12,15 +12,19 @@ class PostManager extends BaseManager
     public function getAllPosts(): array
     {
         $query = $this->pdo->query("select * from post");
-
         $posts = [];
-
         while ($data = $query->fetch(\PDO::FETCH_ASSOC)) {
             $posts[] = new Post($data);
         }
-
         return $posts;
     }
+
+    //get by ID
+	public function getOne($id) {
+        $query = $this->pdo->query("select * from post where post.id = $id");
+        $post = new Post($query->fetch(\PDO::FETCH_ASSOC));
+        return $post;
+	}
 
 
     //on insère un post dans la base de données
@@ -32,4 +36,16 @@ class PostManager extends BaseManager
         ));
         header('Location:../');
 	}
+
+    //on modifie un post dans la base de données
+	public function update($id) {
+        $insert =  $this->pdo->prepare("UPDATE post SET post = (:post) WHERE id = :id");
+        $insert->execute(array(
+            'post' => $_POST["post"],
+            'id' => $id,
+        ));
+        header('Location:../');
+	}
+
+
 }

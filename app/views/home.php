@@ -9,6 +9,7 @@
 
 <?php foreach ($posts as $post): ?>
     <p><?=  $post->getPost(); ?></p>
+    <a href="/post/<?= $post->getId() ?>">Update</a>
 <?php endforeach; ?>
 
 

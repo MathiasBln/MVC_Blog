@@ -2,3 +2,8 @@ index:
     path: /
     controller: App\Controller\PostController
     action: home
+
+postById:
+    path: /post/{id}
+    controller: App\Controller\PostController
+    action: postById

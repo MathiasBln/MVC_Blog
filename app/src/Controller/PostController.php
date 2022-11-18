@@ -26,4 +26,20 @@ class PostController extends AbstractController
 		$test = $getPost->add();
 		$this->render();
 	}
+
+    #[Route('/post/{id}', name: "showOne", methods: ["GET", "POST"])]
+	public function postById ($id) {
+        $getPost = new PostManager(new PDOFactory());
+		$post = $getPost->getOne(intval($id));
+		$this->render("updateForm.php", [
+            "post" => $post,
+        ], "Show by ID");
+	}
+
+    #[Route('/update/{id}', name: "new", methods: ["GET", "POST"])]
+	public function update($id) {
+        $getPost = new PostManager(new PDOFactory());
+        $post = $getPost->update(intval($id));
+		$this->render();
+	}
 }
