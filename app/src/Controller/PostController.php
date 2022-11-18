@@ -42,4 +42,11 @@ class PostController extends AbstractController
         $post = $getPost->update(intval($id));
 		$this->render();
 	}
+
+    #[Route('/delete/{id}', name: "delete", methods: ["GET", "POST"])]
+    public function delete($id) {
+        $getPost = new PostManager(new PDOFactory());
+        $deletePost = $getPost->delete($id);
+        $this->render();
+    }
 }

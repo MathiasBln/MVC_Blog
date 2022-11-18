@@ -47,5 +47,14 @@ class PostManager extends BaseManager
         header('Location:../');
 	}
 
+    //on supprime un post de la base de données
+    public function delete(int $id) {
+        $delete = $this->pdo->prepare("DELETE FROM post WHERE id=:id");
+        $delete->execute(array(
+            'id' => $id,
+        ));
+        header('Location:../');
+    }
+
 
 }
