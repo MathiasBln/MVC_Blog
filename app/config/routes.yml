@@ -1,8 +1,12 @@
 index:
-    path: /
-    controller: App\Controller\PostController
-    action: home
+    path: /signUp
+    controller: App\Controller\LoginController
+    action: insertLogs
 
+createAccount:
+    path: /createAccount
+    controller: App\Controller\LoginController
+    action: goToConnect
 postById:
     path: /post/{id}
     controller: App\Controller\PostController
