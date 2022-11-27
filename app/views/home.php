@@ -13,5 +13,4 @@
     <a href="/delete/<?= $post->getId() ?>">Supprimer</a>
     <p class='from'> écrit par <span><?= $post->getUsername(); ?> le <?= $post->getDate(); ?></span></p></div>
 <?php endforeach; ?>
-
-
+?>

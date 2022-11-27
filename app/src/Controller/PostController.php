@@ -9,7 +9,7 @@ use App\Route\Route;
 
 class PostController extends AbstractController
 {
-    #[Route('/', name: "homepage", methods: ["GET"])]
+    #[Route('/home', name: "homepage", methods: ["GET"])]
     public function home()
     {
         $getPost = new PostManager(new PDOFactory());
