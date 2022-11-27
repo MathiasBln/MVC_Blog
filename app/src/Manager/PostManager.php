@@ -11,7 +11,7 @@ class PostManager extends BaseManager
      */
     public function getAllPosts(): array
     {
-        $query = $this->pdo->query("select * from post");
+        $query = $this->pdo->query("select * from post inner join user where post.userId = user.id");
         $posts = [];
         while ($data = $query->fetch(\PDO::FETCH_ASSOC)) {
             $posts[] = new Post($data);
@@ -54,14 +54,6 @@ class PostManager extends BaseManager
             'id' => $id,
         ));
         header('Location:../');
-    }
-
-    //on affiche les author des posts
-    public function author(int $id) {
-        $show = $this->pdo->prepare('SELECT * FROM post INNER JOIN user WHERE post.userId = user.id');
-        $delete->execute(array(
-            'id' => $id,
-        ));
     }
 
 

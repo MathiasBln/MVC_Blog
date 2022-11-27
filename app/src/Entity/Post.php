@@ -8,6 +8,7 @@ class Post extends BaseEntity
     private string $post;
     private string $date;
     private int $userId;
+    private string $username;
 
     /**
      * @return int
@@ -26,7 +27,15 @@ class Post extends BaseEntity
         $this->id = $id;
         return $this;
     }
-
+    public function setUsername(string $username): Post
+    {
+        $this->username = $username;
+        return $this;
+    }
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
 
     /**
      * @return string
@@ -35,7 +44,7 @@ class Post extends BaseEntity
     {
         return $this->post;
     }
-
+    
     /**
      * @param string $post
      * @return Post

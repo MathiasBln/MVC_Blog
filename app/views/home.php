@@ -11,7 +11,7 @@
     <p><?=  $post->getPost(); ?></p>
     <a href="/post/<?= $post->getId() ?>">Update</a>
     <a href="/delete/<?= $post->getId() ?>">Supprimer</a>
-    <p class='from'> écrit par <span class='author'><?= $post['username']?></span></div>
+    <p class='from'> écrit par <span class='author'><?= $post->getUsername(); ?></span></div>
 <?php endforeach; ?>
 
 
