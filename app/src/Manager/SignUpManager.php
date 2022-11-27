@@ -7,14 +7,14 @@ use App\Entity\User;
 class SignUpManager extends BaseManager
 {
     /**
-     * @return Login[]
+     * @return SignUp[]
      */
 	public function addLogs($token) {
         $insert =  $this->pdo->prepare('INSERT INTO user(username, password, token) VALUES(:username, :password, :token)');
         $insert->execute(array(
-            'username' => $_POST["username"],
-            'password' => $_POST["password"],
-			'token' => $token,
+            "username" => $_POST["username"],
+            "password" => $_POST["password"],
+			"token" => $token,
         ));
 	}
 }

@@ -1,12 +1,18 @@
 index:
     path: /signUp
-    controller: App\Controller\LoginController
+    controller: App\Controller\SignUpController
     action: insertLogs
+
+login:
+    path: /connection
+    controller: App\Controller\SignUpController
+    action: connection
 
 createAccount:
     path: /createAccount
-    controller: App\Controller\LoginController
+    controller: App\Controller\SignUpController
     action: goToConnect
+    
 postById:
     path: /post/{id}
     controller: App\Controller\PostController
