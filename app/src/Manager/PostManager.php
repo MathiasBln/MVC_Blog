@@ -6,9 +6,7 @@ use App\Entity\Post;
 
 class PostManager extends BaseManager
 {
-    /**
-     * @return Post[]
-     */
+   
     public function getAllPosts(): array
     {
         $query = $this->pdo->query("select * from post inner join user where post.userId = user.id");
@@ -29,10 +27,11 @@ class PostManager extends BaseManager
 
     //on insère un post dans la base de données
 	public function add() {
-        $insert =  $this->pdo->prepare('INSERT INTO post(post, userId) VALUES(:post, :userId)');
+        $insert =  $this->pdo->prepare('INSERT INTO post(post, userId, `date`) VALUES(:post, :userId, :date)');
         $insert->execute(array(
             'post' => $_POST["post"],
             'userId' => 1,
+            'date' => date('y-m-d h:i:s')
         ));
         header('Location:../');
 	}

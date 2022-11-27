@@ -11,7 +11,8 @@ CREATE TABLE `post`
     id INT PRIMARY KEY AUTO_INCREMENT,
     post text NOT NULL,
     userId INT,
-    FOREIGN KEY (userId) REFERENCES `user`(id)
+    date DATETIME
+    FOREIGN KEY (userId) REFERENCES `user`(id),
 );
 
 CREATE TABLE `comment` 
