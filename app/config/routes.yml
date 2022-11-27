@@ -7,3 +7,7 @@ createAccount:
     path: /createAccount
     controller: App\Controller\LoginController
     action: goToConnect
+postById:
+    path: /post/{id}
+    controller: App\Controller\PostController
+    action: postById

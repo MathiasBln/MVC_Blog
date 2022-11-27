@@ -10,7 +10,6 @@ CREATE TABLE `post`
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
     post text NOT NULL,
-    `date` DATE,
     userId INT,
     FOREIGN KEY (userId) REFERENCES `user`(id)
 );
